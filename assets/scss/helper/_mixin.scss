@@ -1,0 +1,35 @@
+@mixin styleText($fs, $color, $fw) {
+  color: $color;
+  font-size: $fs;
+  font-weight: $fw;
+}
+
+@mixin displayFlex($justify, $align) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin button($color, $fs, $fw) {
+  color: $color;
+  font-size: $fs;
+  font-weight: $fw;
+  transition: all 0.3s;
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+@mixin responsive($screen) {
+  @if (map-has-key($map: $breakpoint, $key: $screen)) {
+    $width: map-get(
+      $map: $breakpoint,
+      $key: $screen,
+    );
+    @media screen and (max-width: $width) {
+      @content;
+    }
+  } @else {
+    @warn "`${screen}` không tồn tại trong map `${breakpoint}`";
+  }
+}
