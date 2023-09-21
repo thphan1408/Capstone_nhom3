@@ -100,7 +100,7 @@ function addProduct() {
   var sp = getInfor();
   console.log("sp: ", sp);
 
-  // kiểm tra tên
+  // kiểm tra tên sản phẩm
   valid = kiemTraRong(sp.name, "#tbName", "Tên sản phẩm không được để trống !");
   //kiểm tra giá
   valid &= kiemTraSoRong(sp.price, "#tbPrice", "Giá không được để trống !");
@@ -119,7 +119,7 @@ function addProduct() {
     "Camera sau không được để trống !"
   );
 
-  //kiểm tra camera sau
+  //kiểm tra camera trước
   valid &= kiemTraRong(
     sp.frontCamera,
     "#tbFrontCamera",
