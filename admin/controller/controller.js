@@ -131,7 +131,7 @@ function addProduct() {
 
   //kiểm tra mô tả
   valid &= kiemTraRong(sp.desc, "#tbDesc", "Mô tả không được để trống !");
-  //kiểm tra chức vụ
+  //kiểm tra loại sản phẩm
   valid &=
     kiemTraRong(sp.type, "#tbType", "Loại sản phẩm không được để trống !") &&
     kiemTraOption(sp.type, "#tbType", "Vui lòng chọn 1 loại sản phẩm");
