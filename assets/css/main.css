@@ -350,12 +350,6 @@ header .shopping span {
 }
 
 .card {
-  position: fixed;
-  top: 0;
-  left: 100%;
-  width: 500px;
-  background-color: #453E3B;
-  height: 100vh;
   transition: 0.5s;
 }
 .card h1 {
@@ -416,9 +410,6 @@ header .shopping span {
 }
 .listCard .count {
   margin: 0 10px;
-}
-.header .navbar .icons .icons__content .icons__link i:hover {
-  transform: scale(1.15);
 }
 
 .manager {
