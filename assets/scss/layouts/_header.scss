@@ -1,102 +1,47 @@
-.header {
-  @include responsive("large") {
-    .navbar-toggler {
-      background: transparent;
-      // margin-right: 10px;
-      outline: none;
-      i {
-        @include styleText(1.8rem, $white-color, 800);
-      }
-    }
-    &__logo {
-      @include styleText(1.8rem, $white-color, 800);
-      &:hover {
-        pointer-events: none;
-        color: $white-color;
+header {
+  .navbar{
+    padding: 2rem 0;
+    .header__logo{
+      @include styleText(30px, $color_5, 600);
+      transition: all 0.3s;
+      &:hover{
+        color: $color_6;
       }
     }
 
-    .icons {
-      .icons__content {
-        display: flex;
-        align-items: center;
-        position: relative;
-        .btn-cart {
-          @include button($white-color, 1.5rem, 600);
-          outline: none;
-          border: none;
-          &:focus {
-            box-shadow: none;
-          }
-          .total-qty {
-            position: absolute;
-            top: 0;
-            right: 5rem;
-          }
-        }
-      }
-    }
-  }
-
-  &__logo {
-    @include styleText(2rem, $white-color, 800);
-    &:hover {
-      pointer-events: none;
-      color: $white-color;
-    }
-  }
-
-  .navbar {
-    .nav-item {
-      .nav-link {
-        @include styleText(1.2rem, $white-color, 600);
-        transition: all 0.3s;
-        margin-left: 25px;
-        &:hover {
-          transform: scale(1.15);
-        }
-      }
-    }
-
-    .icons {
-      .icons__content {
-        display: flex;
-        align-items: center;
-        position: relative;
-        .btn-cart {
-          @include button($white-color, 1.5rem, 600);
-          outline: none;
-          border: none;
-          &:focus {
-            box-shadow: none;
-          }
-        }
-        .total-qty {
-          position: absolute;
-          width: 1.3rem;
-          height: 1.3rem;
-          text-align: center;
-          font-size: 0.9rem;
-          top: 0;
-          right: 2.5rem;
-          color: $white-color;
-          background-color: $black-color;
-          border-radius: 50%;
-        }
-
-        .icons__link {
-          text-decoration: none;
-          @include styleText(1.5rem, $white-color, 600);
+    .navbar-nav{
+      .nav-item{
+        margin-left: 20px;
+        .nav-link{
+          @include styleText(23px, $color_5, 400);
           transition: all 0.3s;
-          margin-left: 25px;
-          i {
-            transition: all 0.3s;
-            &:hover {
-              transform: scale(1.15);
-            }
+          &:hover{
+            font-weight: 600;
+            transform: scale(1.2);
           }
         }
       }
+    }
+  }
+
+  .shopping {
+    position: relative;
+    text-align: right;
+    i {
+      font-size: 20px;
+    }
+    span {
+      background: red;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: $color_1;
+      position: absolute;
+      top: -10px;
+      left: 92%;
+      width: 1rem;
+      height: 1rem;
     }
   }
 }

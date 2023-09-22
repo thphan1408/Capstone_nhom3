@@ -29,52 +29,66 @@
     <!-- main css -->
     <link rel="stylesheet" href="../../assets/css/main.css" />
   </head>
-  <body>
-    <!-- HEADER -->
-    <header class="header">
-      <nav class="container navbar navbar-expand-lg">
-        <a class="navbar-brand header__logo" href="#"> Phone Shop </a>
+  <body class="">
+    <div class="container">
+      <header>
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <a class="navbar-brand header__logo" href="#">Phone Shop</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarHeader"
-          aria-controls="navbarHeader"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <i class="fa fa-bars"></i>
-        </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="#"
+                  >Home <span class="sr-only">(current)</span></a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Dashboard</a>
+              </li>
+            </ul>
+          </div>
+          <div class="shopping">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="quantity">0</span>
+          </div>
+        </nav>
+      </header>
 
-        <div class="collapse navbar-collapse" id="navbarHeader">
-          <ul class="navbar-nav mx-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#"> Home </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#"> Dashboard </a>
-            </li>
-          </ul>
-          <div class="icons">
-            <div class="icons__content">
-              <div class="cart">
-                <button class="btn btn-cart">
-                  <i class="fa fa-shopping-cart"></i>
-                </button>
-                <span class="total-qty">0</span>
-              </div>
-              <div class="login">
-                <a href="#" class="icons__link">
-                  <i class="fa fa-user"></i>
-                </a>
-              </div>
-            </div>
+      <section class="products">
+        <div class="products__title">
+          <h1>Products</h1>
+          <div class="products__selected">
+            <select name="brands" id="brands">
+              <option value="all">All</option>
+              <option value="iphone">Iphone</option>
+              <option value="samsung">Samsung</option>
+            </select>
           </div>
         </div>
-      </nav>
-    </header>
 
+        <div class="products__list"></div>
+      </section>
+    </div>
+    <div class="card">
+      <h1>Card</h1>
+      <ul class="listCard"></ul>
+      <!-- <div class="total">0</div> -->
+      <div class="checkOut">
+        <div class="checkOutBtn">Check Out</div>
+        <div class="closeShopping">Close</div>
+      </div>
+    </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
@@ -92,5 +106,26 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
+
+    <!-- AXIOS -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.0/axios.min.js"
+      integrity="sha512-aoTNnqZcT8B4AmeCFmiSnDlc4Nj/KPaZyB5G7JnOnUEkdNpCZs1LCankiYi01sLTyWy+m2P+W4XM+BuQ3Q4/Dg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <!-- MODEL -->
+    <script src="../model/products.js"></script>
+
+    <!-- SERVICES -->
+    <script src="../services/productService.js"></script>
+
+    <!-- CONTROLLER -->
+    <script src="../controller/productController.js"></script>
+
+    <!-- MAIN -->
+    <script src="../controller/index.js"></script>
+    <script src="../../assets/js/main.js"></script>
   </body>
 </html>
