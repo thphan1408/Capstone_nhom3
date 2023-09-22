@@ -354,6 +354,12 @@ header .shopping span {
 }
 
 .card {
+  position: fixed;
+  top: 0;
+  left: 100%;
+  width: 500px;
+  background-color: #453E3B;
+  height: 100vh;
   transition: 0.5s;
   z-index: 999;
 }
