@@ -3,7 +3,6 @@ function getElem(selector) {
 }
 
 function renderProductList(productList) {
-  // console.log(productList);
   let content = "";
   for (let i = 0; i < productList.length; i++) {
     let products = productList[i];
@@ -42,6 +41,7 @@ function renderProductList(productList) {
   getElem(".products__list").innerHTML = content;
 }
 
-function reloadCart(){
-	
+// renderReloadCart();
+function renderReloadCart() {
+
 }
