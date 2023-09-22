@@ -13,8 +13,12 @@ body {
   position: relative;
 }
 
-header .navbar {
-  padding: 2rem 0;
+header {
+  width: 100%;
+  background: #f5f9fe;
+  box-shadow: 0 2px 4px #e2ebfc;
+  position: fixed;
+  z-index: 99;
 }
 header .navbar .header__logo {
   color: #21c2f8;
@@ -60,7 +64,7 @@ header .shopping span {
 }
 
 .products {
-  padding: 100px 0;
+  padding: 200px 0;
 }
 .products .products__list {
   display: grid;
@@ -350,7 +354,14 @@ header .shopping span {
 }
 
 .card {
+  position: fixed;
+  top: 0;
+  left: 100%;
+  width: 500px;
+  background-color: #453E3B;
+  height: 100vh;
   transition: 0.5s;
+  z-index: 999;
 }
 .card h1 {
   color: #E8BC0E;
@@ -414,6 +425,9 @@ header .shopping span {
 
 .manager {
   padding: 180px 0 120px;
+}
+.manager .card-manager {
+  background-color: #fff;
 }
 .manager #searchProduct {
   margin: 10px 0 5px;

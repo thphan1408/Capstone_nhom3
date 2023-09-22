@@ -1,21 +1,25 @@
 header {
-  .navbar{
-    padding: 2rem 0;
-    .header__logo{
+  width: 100%;
+  background: $color-blue-1;
+  box-shadow: 0 2px 4px $color-blue-4;
+  position: fixed;
+  z-index: 99;
+  .navbar {
+    .header__logo {
       @include styleText(30px, $color_5, 600);
       transition: all 0.3s;
-      &:hover{
+      &:hover {
         color: $color_6;
       }
     }
 
-    .navbar-nav{
-      .nav-item{
+    .navbar-nav {
+      .nav-item {
         margin-left: 20px;
-        .nav-link{
+        .nav-link {
           @include styleText(23px, $color_5, 400);
           transition: all 0.3s;
-          &:hover{
+          &:hover {
             font-weight: 600;
             transform: scale(1.2);
           }
