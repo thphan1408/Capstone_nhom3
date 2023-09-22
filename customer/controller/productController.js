@@ -30,7 +30,7 @@ function renderProductList(productList) {
 					<p>${products.desc}</p>
 				</div>
 				<div class="product-info smart-form">
-							<button class="btn btn-primary">Add to cart</button>
+							<button class="btn btn-primary" onclick="addToCart()">Add to cart</button>
 					</div>
 				</div>
 			</div>
@@ -40,4 +40,8 @@ function renderProductList(productList) {
   }
 
   getElem(".products__list").innerHTML = content;
+}
+
+function reloadCart(){
+	
 }
