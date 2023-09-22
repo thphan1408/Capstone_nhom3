@@ -1,10 +1,10 @@
 .card {
-  // position: fixed;
-  // top: 0;
-  // left: 100%;
-  // width: 500px;
-  // background-color: $background-color_3;
-  // height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 100%;
+  width: 500px;
+  background-color: $background-color_3;
+  height: 100vh;
   transition: 0.5s;
   z-index: 999;
   h1 {
