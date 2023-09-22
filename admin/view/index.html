@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Phone Shop</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <!-- FONT FAMILY  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,200;6..12,300;6..12,400;6..12,500;6..12,600;6..12,700;6..12,800;6..12,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- FONT AWESOME -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- MY CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css" />
+    <link rel="stylesheet" href="/assets/css/modal.css" />
+  </head>
+
+  <body>
+    <header class="header__admin">
+      <nav class="container navbar navbar-expand-lg">
+        <a class="header__admin__logo navbar-brand" href="#">Phone Shop</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/admin/view/index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/customer/views/index.html">Shop</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <section class="manager">
+      <div class="container">
+        <div class="card text-center">
+          <div class="card-header myCardHeader">
+            <div class="row">
+              <div class="col-md-6">
+                <h3 class="text-left text-primary font-weight-bold">
+                  Phone Management
+                </h3>
+              </div>
+              <div class="col-md-6 text-right">
+                <button
+                  class="btn btn-primary"
+                  id="btnThem"
+                  data-toggle="modal"
+                  data-target="#myModal"
+                  onclick="resetForm(), offValid()"
+                >
+                  Add Phone
+                </button>
+              </div>
+            </div>
+            <div class="input-group" id="searchProduct">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Tên sản phẩm"
+                id="searchName"
+              />
+              <div class="input-group-prepend" >
+                <button type="button" class="input-group-text" id="hoverSearch" onclick="searchProductByName()"
+                  ><i class="fa fa-search"></i
+                ></button>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <table class="table table-bordered table-hover myTable">
+              <thead class="text-primary">
+                <tr>
+                  <th>Id</th>
+                  <th>Name</th>
+                  <th> Price
+                    <i class="fa-solid fa-arrow-up"  onclick="arrangeProductMoneyAscending()"></i>
+                    <i class="fa-solid fa-arrow-down" onclick="arrangeProductMoneyDescending()"></i>
+                  </th>
+                  <th>Image</th>
+                  <th>Description</th>
+                  <th>Type</th>
+                  <th><em class="fa fa-cog"></em>Action</th>
+                </tr>
+              </thead>
+              <tbody id="tableListProduct"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="modal fade" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <header class="head-form mb-0">
+            <h2 id="header-title">Phone Management</h2>
+          </header>
+          <!-- Modal body -->
+          <div class="modal-body">
+            <form role="form">
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="fa-solid fa-barcode"></i></span>
+                  </div>
+                  <input
+                    id="id"
+                    class="form-control"
+                    placeholder="Id"
+                    readonly
+                  />
+                </div>
+                <span class="sp-thongbao" id="tbId"></span>
+              </div>
+
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="fa-solid fa-mobile-screen-button"></i
+                    ></span>
+                  </div>
+
+                  <input
+                    type="text"
+                    name="name"
+                    id="name"
+                    class="form-control input-sm"
+                    placeholder="Phone Name"
+                  />
+                </div>
+
+                <span class="sp-thongbao" id="tbName"></span>
+              </div>
+
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="fa-solid fa-dollar-sign"></i
+                    ></span>
+                  </div>
+                  <input
+                    type="number"
+                    name="price"
+                    id="price"
+                    class="form-control input-sm"
+                    placeholder="Price"
+                  />
+                </div>
+                <span class="sp-thongbao" id="tbPrice"></span>
+              </div>
+
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="fa-solid fa-mobile-screen-button"></i
+                    ></span>
+                  </div>
+                  <input
+                    type="text"
+                    name="screen"
+                    id="screen"
+                    class="form-control input-sm"
+                    placeholder="Screen"
+                  />
+                </div>
+
+                <span class="sp-thongbao" id="tbScreen"></span>
+              </div>
+
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="fa-solid fa-camera"></i
+                    ></span>
+                  </div>
+                  <input
+                    type="text"
+                    name="backCamera"
+                    id="backCamera"
+                    class="form-control input-sm"
+                    placeholder="Back Camera"
+                  />
+                </div>
+                <span class="sp-thongbao" id="tbBackCamera"></span>
+              </div>
+
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="fa-solid fa-camera"></i
+                    ></span>
+                  </div>
+                  <input
+                    type="text"
+                    name="frontCamera"
+                    id="frontCamera"
+                    class="form-control"
+                    placeholder="Front Camera"
+                  />
+                </div>
+
+                <span class="sp-thongbao" id="tbFrontCamera"></span>
+              </div>
+
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="fa-solid fa-link"></i
+                    ></span>
+                  </div>
+                  <input
+                    type="text"
+                    name="img"
+                    id="img"
+                    class="form-control input-sm"
+                    placeholder="Image Link"
+                  />
+                </div>
+                <span class="sp-thongbao" id="tbImage"></span>
+              </div>
+
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="fa-solid fa-comment"></i
+                    ></span>
+                  </div>
+                  <input
+                    type="text"
+                    name="description"
+                    id="desc"
+                    class="form-control input-sm"
+                    placeholder="Description"
+                  />
+                </div>
+                <span class="sp-thongbao" id="tbDesc"></span>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="fa-solid fa-code-branch"></i
+                    ></span>
+                  </div>
+                  <select class="form-control" id="type">
+                    <option value="Select Type">Select Type</option>
+                    <option value="Iphone">Iphone</option>
+                    <option value="Samsung">Samsung</option>
+                  </select>
+                </div>
+
+                <span class="sp-thongbao" id="tbType"></span>
+              </div>
+            </form>
+          </div>
+
+          <!-- Modal footer -->
+          <div class="modal-footer" id="modal-footer">
+            <button
+              id="btnThemSP"
+              type="button"
+              onclick="addProduct()"
+              class="btn btn-success"
+            >
+              Add Phone
+            </button>
+            <button
+              id="btnCapNhat"
+              type="button"
+              onclick="updateProduct()"
+              class="btn btn-success"
+            >
+              Update
+            </button>
+            <button
+              id="btnDong"
+              type="button"
+              class="btn btn-danger"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer__admin">
+      <img
+        src="/assets/image/angle-up-light.svg"
+        alt=""
+        class="img-fluid footer__light"
+      />
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-4">@2023</div>
+          <div class="col-8">
+            <ul class="nav justify-content-end">
+              <li class="nav-item">
+                <a href="/admin/view/index.html" class="nav-link">Home</a>
+              </li>
+              <li class="nav-item">
+                <a href="/customer/views/index.html" class="nav-link">Shop</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- AXIOS  -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.0/axios.min.js"
+      integrity="sha512-aoTNnqZcT8B4AmeCFmiSnDlc4Nj/KPaZyB5G7JnOnUEkdNpCZs1LCankiYi01sLTyWy+m2P+W4XM+BuQ3Q4/Dg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <!-- MODEL Product -->
+    <script src="/admin/model/Product.js"></script>
+    <!-- Validations -->
+    <script src="/admin/util/validation.js"></script>
+    <!-- services -->
+    <script src="/admin/services/productsServ.js"></script>
+
+    <!-- controllers -->
+    <script src="/admin/controller/controller.js"></script>
+    
+  </body>
+</html>

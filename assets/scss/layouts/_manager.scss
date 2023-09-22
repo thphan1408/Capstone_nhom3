@@ -1,0 +1,27 @@
+.manager {
+  padding: 180px 0 120px;
+
+  #searchProduct {
+    margin: 10px 0 5px;
+  }
+  #hoverSearch:hover {
+    background-color: #e9edf0;
+    color: #6ca3f2;
+  }
+  .text-primary th:nth-child(2) {
+    width: 170px;
+  }
+  
+  .text-primary th:nth-child(3) {
+    width: 115px;
+  }
+  .text-primary th:nth-child(3) i {
+    padding: 0 3px 0;
+  }
+  .text-primary th:nth-child(3) i:hover {
+    color: #08315c;
+  }
+  .text-primary th:nth-child(5) {
+    width: 180px;
+  }
+}
