@@ -1,0 +1,70 @@
+.card {
+  position: fixed;
+  top: 0;
+  left: 100%;
+  width: 500px;
+  background-color: $background-color_3;
+  height: 100vh;
+  transition: 0.5s;
+  h1 {
+    color: $color_2;
+    font-weight: 100;
+    margin: 0;
+    padding: 0 20px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+  }
+  .checkOut {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    div {
+      background-color: $background-color_4;
+      width: 100%;
+      height: 70px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+      cursor: pointer;
+      &:nth-child(2) {
+        background-color: $background-color_2;
+        color: $color_1;
+      }
+    }
+  }
+}
+.active {
+  .card {
+    left: calc(100% - 500px);
+  }
+  .container {
+    transform: translateX(-200px);
+  }
+}
+.listCard {
+  li {
+    display: grid;
+    grid-template-columns: 100px repeat(3, 1fr);
+    color: $color_1;
+    row-gap: 10px;
+    div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    img {
+      width: 90%;
+    }
+    button {
+      background-color: $background-color_5;
+      border: none;
+    }
+  }
+  .count {
+    margin: 0 10px;
+  }
+}
