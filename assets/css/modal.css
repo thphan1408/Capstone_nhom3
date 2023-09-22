@@ -30,14 +30,14 @@ form {
 }
 
 /* Login title form form */
-header h2 {
+div h2 {
   padding-top: 10px;
   text-align: center;
   font-size: 250%;
   font-family: "Playfair Display", serif;
   color: #3e403f;
 }
-header p {
+div p {
   letter-spacing: 0.05em;
 }
 
