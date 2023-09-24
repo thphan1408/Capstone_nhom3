@@ -45,9 +45,10 @@ header .navbar .navbar-nav .nav-item .nav-link:hover {
 header .shopping {
   position: relative;
   text-align: right;
+  cursor: pointer;
 }
 header .shopping i {
-  font-size: 20px;
+  font-size: 23px;
 }
 header .shopping span {
   background: red;

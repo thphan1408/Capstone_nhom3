@@ -31,8 +31,9 @@ header {
   .shopping {
     position: relative;
     text-align: right;
+    cursor: pointer;
     i {
-      font-size: 20px;
+      font-size: 23px;
     }
     span {
       background: red;

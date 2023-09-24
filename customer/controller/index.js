@@ -10,7 +10,3 @@ function fetchProducts() {
 }
 
 fetchProducts();
-
-// thêm sản phẩm vào giỏ hàng
-function addToCart() {
-}
