@@ -17,7 +17,7 @@ function renderProductList(productList) {
 					</div>
 				</div>
 				<div class="col-md-7 col-sm-12 col-xs-12">
-				<div class="product-detail">
+				<div class="product-deatil">
 						<h5 class="name">
 							<a href="#">
 								${products.name} <span>${products.type}</span>
