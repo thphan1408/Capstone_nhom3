@@ -17,7 +17,7 @@ function renderProductList(productList) {
 					</div>
 				</div>
 				<div class="col-md-7 col-sm-12 col-xs-12">
-				<div class="product-deatil">
+				<div class="product-detail">
 						<h5 class="name">
 							<a href="#">
 								${products.name} <span>${products.type}</span>
@@ -44,46 +44,4 @@ function renderProductList(productList) {
   getElem(".products__list").innerHTML = content;
 }
 
-// renderReloadCart();
-// function renderReloadCart(productList) {
-//   let content = "";
-//   for (let j = 0; j < productList.length; j++) {
-//     let product = productList[j];
-//     let htmlContent = `
-// 		<li>
-// 			<img src="${product.img}" class="cart-thumb" alt="" />
-// 			<h6><a href="#">${product.name}</a></h6>
 
-// 			<p>${product.price}</p>
-// 		</li>
-// 	`;
-//     content += htmlContent;
-//   }
-
-//   getElem(".listCard").innerHTML = content;
-// }
-
-// thêm sản phẩm vào giỏ hàng
-function addToCart(id) {
-  // console.log(id);
-  let prod = Cart.productsCart.find((pro) => pro.id === id);
-  getElem(".listCard").innerHTML += `
-		<li>
-				<img src="${prod.img}" class="cart-thumb img-fluid" alt="" />
-				<strong>${prod.name} </strong>
-				<span>${prod.type}</span>
-				<span>
-					<div>
-						<button class="btn-qty" onclick="decreaseQty('${prod.id}')">-</button>
-						<p class="input-qty">1</p>
-						<button class="btn-qty" onclick="increaseQty('${prod.id}')">+</button>
-					</div>
-				</span>
-				<p>$${prod.price}</p>
-
-				<button class="btn btn-danger" onclick="deleteProduct('${prod.id}')">
-					<i class="fa fa-trash"></i>
-				</button>
-		</li>
-  `;
-}
