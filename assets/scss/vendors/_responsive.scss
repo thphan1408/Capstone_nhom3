@@ -3,6 +3,12 @@
 @include responsive("large") {
   header {
     .navbar {
+      .nav-item {
+        .nav-link {
+          @include styleText(1.2rem, $color-blue-2, 700);
+          text-align: center;
+        }
+      }
       .toggeler {
         display: flex;
         align-items: center;
@@ -70,6 +76,12 @@
 @include responsive("medium") {
   header {
     .navbar {
+      .nav-item {
+        .nav-link {
+          @include styleText(1.2rem, $color-blue-2, 700);
+          text-align: center;
+        }
+      }
       .toggeler {
         display: flex;
         align-items: center;
@@ -138,6 +150,13 @@
 @include responsive("small") {
   header {
     .navbar {
+      .nav-item {
+        .nav-link {
+          @include styleText(1.2rem, $color-blue-2, 700);
+          text-align: center;
+        }
+      }
+
       .toggeler {
         display: flex;
         align-items: center;
