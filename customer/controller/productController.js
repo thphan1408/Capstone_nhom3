@@ -1,3 +1,5 @@
+let Cart = new CartArr();
+
 function getElem(selector) {
   return document.querySelector(selector);
 }
@@ -6,6 +8,7 @@ function renderProductList(productList) {
   let content = "";
   for (let i = 0; i < productList.length; i++) {
     let products = productList[i];
+    Cart.addProduct(products);
     let htmlContent = `	<div class="product-content product-wrap clearfix">
 		<div class="row">
 				<div class="col-md-5 col-sm-12 col-xs-12">
@@ -14,7 +17,7 @@ function renderProductList(productList) {
 					</div>
 				</div>
 				<div class="col-md-7 col-sm-12 col-xs-12">
-				<div class="product-deatil">
+				<div class="product-detail">
 						<h5 class="name">
 							<a href="#">
 								${products.name} <span>${products.type}</span>
@@ -29,7 +32,7 @@ function renderProductList(productList) {
 					<p>${products.desc}</p>
 				</div>
 				<div class="product-info smart-form">
-							<button class="btn btn-primary" onclick="addToCart()">Add to cart</button>
+							<button class="btn btn-primary" onclick="addToCart('${products.id}')">Add to cart</button>
 					</div>
 				</div>
 			</div>
@@ -41,7 +44,4 @@ function renderProductList(productList) {
   getElem(".products__list").innerHTML = content;
 }
 
-// renderReloadCart();
-function renderReloadCart() {
 
-}

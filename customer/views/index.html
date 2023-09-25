@@ -31,30 +31,37 @@
   </head>
   <body class="">
     <header>
-        <div class="container">
+      <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light">
           <a class="navbar-brand header__logo" href="#">Phone Shop</a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
+
+          <div class="toggeler">
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="shopping-m">
+              <i class="fas fa-shopping-cart"></i>
+              <span class="quantity">0</span>
+            </div>
+          </div>
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto">
               <li class="nav-item active">
-                <a class="nav-link" href="#"
-                  >Home</a
-                >
+                <a class="nav-link" href="#">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="../../admin/view/index.html">Dashboard</a>
+                <a class="nav-link" href="../../admin/view/index.html"
+                  >Dashboard</a
+                >
               </li>
             </ul>
           </div>
@@ -63,11 +70,11 @@
             <span class="quantity">0</span>
           </div>
         </nav>
-        </div>
-      </header>
+      </div>
+    </header>
 
-      <section class="products">
-        <div class="container">
+    <section class="products">
+      <div class="container">
         <div class="products__title">
           <h1>Products</h1>
           <div class="products__selected">
@@ -81,9 +88,9 @@
 
         <div class="products__list"></div>
       </div>
-      </section>
+    </section>
     <div class="card">
-      <h1>Card</h1>
+      <h1>Cart shopping</h1>
       <ul class="listCard"></ul>
       <!-- <div class="total">0</div> -->
       <div class="checkOut">
@@ -91,6 +98,7 @@
         <div class="closeShopping">Close</div>
       </div>
     </div>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
@@ -119,15 +127,17 @@
 
     <!-- MODEL -->
     <script src="../model/products.js"></script>
+    <script src="../model/cart.js"></script>
 
     <!-- SERVICES -->
     <script src="../services/productService.js"></script>
 
     <!-- CONTROLLER -->
     <script src="../controller/productController.js"></script>
+    <script src="../controller/cartController.js"></script>
+    <script src="../controller/index.js"></script>
 
     <!-- MAIN -->
-    <script src="../controller/index.js"></script>
     <script src="../../assets/js/main.js"></script>
   </body>
 </html>

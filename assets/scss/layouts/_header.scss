@@ -1,9 +1,10 @@
 header {
-  width: 100%;
+  min-width: 100%;
   background: $color-blue-1;
   box-shadow: 0 2px 4px $color-blue-4;
   position: fixed;
   z-index: 99;
+
   .navbar {
     .header__logo {
       @include styleText(30px, $color_5, 600);
@@ -17,7 +18,7 @@ header {
       .nav-item {
         margin-left: 20px;
         .nav-link {
-          @include styleText(23px, $color_5, 400);
+          @include styleText(20px, $color_5, 400);
           transition: all 0.3s;
           &:hover {
             font-weight: 600;
@@ -28,11 +29,16 @@ header {
     }
   }
 
+  .shopping-m {
+    display: none;
+  }
+
   .shopping {
     position: relative;
     text-align: right;
+    cursor: pointer;
     i {
-      font-size: 20px;
+      font-size: 23px;
     }
     span {
       background: red;
@@ -47,5 +53,8 @@ header {
       width: 1rem;
       height: 1rem;
     }
+  }
+
+  @include responsive("small") {
   }
 }
