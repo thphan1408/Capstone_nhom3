@@ -522,6 +522,12 @@ header .shopping span {
 }
 
 @media screen and (max-width: 992px) {
+  header .navbar .nav-item .nav-link {
+    color: #2a73dd;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-align: center;
+  }
   header .navbar .toggeler {
     display: flex;
     align-items: center;
@@ -579,6 +585,12 @@ header .shopping span {
   }
 }
 @media screen and (max-width: 768px) {
+  header .navbar .nav-item .nav-link {
+    color: #2a73dd;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-align: center;
+  }
   header .navbar .toggeler {
     display: flex;
     align-items: center;
@@ -637,6 +649,12 @@ header .shopping span {
   }
 }
 @media screen and (max-width: 576px) {
+  header .navbar .nav-item .nav-link {
+    color: #2a73dd;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-align: center;
+  }
   header .navbar .toggeler {
     display: flex;
     align-items: center;
