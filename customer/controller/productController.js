@@ -1,4 +1,5 @@
 let Cart = new CartArr();
+let productArr=[];
 
 function getElem(selector) {
   return document.querySelector(selector);
@@ -8,7 +9,7 @@ function renderProductList(productList) {
   let content = "";
   for (let i = 0; i < productList.length; i++) {
     let products = productList[i];
-    Cart.addProduct(products);
+	productArr.push(products);
     let htmlContent = `	<div class="product-content product-wrap clearfix">
 		<div class="row">
 				<div class="col-md-5 col-sm-12 col-xs-12">
@@ -32,7 +33,7 @@ function renderProductList(productList) {
 					<p>${products.desc}</p>
 				</div>
 				<div class="product-info smart-form">
-							<button class="btn btn-primary" onclick="addToCart('${products.id}')">Add to cart</button>
+							<button class="btn btn-primary" id="addCart" onclick="addToCart('${products.id}')">Add to cart</button>
 					</div>
 				</div>
 			</div>
@@ -59,3 +60,12 @@ function selectType() {
 	  });
   }
 
+// thêm sản phẩm vào giỏ hàng
+function addToCart(id) {
+	let pro= productArr.find(p=>p.id === id);
+	if(pro){
+		Cart.addProduct(pro)
+	}
+	renderReloadCart(Cart.productsCart);
+  }
+  
