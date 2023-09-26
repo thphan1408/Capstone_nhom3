@@ -44,4 +44,18 @@ function renderProductList(productList) {
   getElem(".products__list").innerHTML = content;
 }
 
+function selectType() {
+	getProducts()
+	  .then(function (res) {
+		var productsList = res.data;
+		const selectValue = document.getElementById("brands").value;
+		var result = selectValue === "All" ?  productsList : productsList.filter(function (sp) {
+		  return sp.type === selectValue;
+		});
+		renderProductList(result);
+	  })
+	  .catch(function (err) {
+		console.log("err", err);
+	  });
+  }
 
