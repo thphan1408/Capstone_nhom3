@@ -43,5 +43,3 @@ function renderProductList(productList) {
 
   getElem(".products__list").innerHTML = content;
 }
-
-
