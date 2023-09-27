@@ -1,59 +1,30 @@
-function renderCart(id) {
-  let prod = Cart.productsCart.find((pro) => pro.id === id);
+function renderReloadCart(arrProduct) {
+	let html = "";
+	for (let i = 0; i < arrProduct.length; i++) {
+		let prod =arrProduct[i];
+		html += `
+   <li>
+		   <img src="${prod.img}" class="cart-thumb img-fluid" alt="" />
+		   <strong>${prod.name} </strong>
+		   <span>
+			   <div>
+				   <button class="btn-qty" onclick="decreaseQty('${prod.id}')">-</button>
+				   <p class="input-qty">1</p>
+				   <button class="btn-qty" onclick="increaseQty('${prod.id}')">+</button>
+			   </div>
+		   </span>
+		   <p>$${prod.price}</p>
 
-  getElem(".listCard").innerHTML += `
-		  <li>
-				  <img src="${prod.img}" class="cart-thumb img-fluid" alt="" />
-				  <strong>${prod.name} </strong>
-				  <span>
-					  <div class="amount-qty">
-						  <button class="btn-qty" onclick="decreaseQty()">-</button>
-						  <input type="text" id="input-qty" value="1"/>
-						  <button class="btn-qty" onclick="increaseQty()">+</button>
-					  </div>
-				  </span>
-				  <p class="txt-price">$${prod.price}</p>
-  
-				  <button class="btn btn-danger" onclick="deleteProduct('${prod.id}')">
-					  <i class="fa fa-trash"></i>
-				  </button>
-		  </li>
-	`;
-  isCheckInput();
+		   <button class="btn btn-danger" onclick="deleteProduct('${prod.id}')">
+			   <i class="fa fa-trash"></i>
+		   </button>
+   </li>
+`
+	}
+	getElem(".listCard").innerHTML = html;
 }
 
-// thêm sản phẩm vào giỏ hàng
-function addToCart(id) {
-  renderCart(id);
+function deleteProduct(id) {
+	Cart.deleteProduct(id);
+	renderReloadCart(Cart.productsCart);
 }
-
-// tăng số lượng sản phẩm
-function increaseQty() {
-  let qty = getElem("#input-qty").value;
-
-  qty++;
-
-  getElem("#input-qty").value = qty;
-}
-
-// giảm số lượng sản phẩm
-function decreaseQty() {
-  let qty = getElem("#input-qty").value;
-
-  if (qty > 1) {
-    qty--;
-    getElem("#input-qty").value = qty;
-  }
-}
-
-function isCheckInput() {
-  getElem("#input-qty").addEventListener("input", () => {
-    let qty = getElem("#input-qty").value;
-    console.log(qty);
-    qty = parseInt(qty);
-    qty = isNaN(qty) || qty == 0 ? 1 : qty;
-    getElem("#input-qty").value = qty;
-    console.log(qty);
-  });
-}
-
