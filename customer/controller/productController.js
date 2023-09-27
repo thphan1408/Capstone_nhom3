@@ -70,10 +70,11 @@ function addToCart(id) {
   if (isCheckProduct(id) >= 0) {
     updateQty(isCheckProduct(id));
   } else {
-    cart.addProduct({ ...pro, qty: 1 });
+    cart.addProduct({ ...pro, qty: 1, total: 0 });
     renderReloadCart(cart.productsCart);
   }
 
+  totalProduct(id)
   ValueQty(cart.productsCart.length);
 }
 
@@ -87,11 +88,11 @@ function isCheckProduct(id) {
       break;
     }
   }
+
   return flag;
 }
 
 // Update số lượng sản phẩm
-// Chỗ này có bug
 function updateQty(index) {
   const prod = cart.productsCart;
   for (let i = 0; i < prod.length; i++) {

@@ -13,7 +13,7 @@ function renderReloadCart(arrProduct) {
 				   <button class="btn-qty" onclick="increaseQty('${prod.id}')">+</button>
 			   </div>
 		   </span>
-		   <p>$${prod.price}</p>
+		   <p>$${prod.total}</p>
 
 		   <button class="btn btn-danger" onclick="deleteProduct('${prod.id}')">
 			   <i class="fa fa-trash"></i>
@@ -22,7 +22,7 @@ function renderReloadCart(arrProduct) {
 `;
   }
   getElem(".listCard").innerHTML = html;
-  //   isCheckInput();
+    // isCheckInput(id);
 }
 
 function deleteProduct(id) {
@@ -40,7 +40,8 @@ function increaseQty(id) {
       break;
     }
   }
-  totalMoney(cart.productsCart);
+  // totalMoney(cart.productsCart);
+  totalProduct(id);
   renderReloadCart(cart.productsCart);
 }
 
@@ -53,30 +54,47 @@ function decreaseQty(id) {
       break;
     }
   }
-  totalMoney(cart.productsCart);
+  // totalMoney(cart.productsCart);
+  totalProduct(id);
   renderReloadCart(cart.productsCart);
 }
 
 // Kiểm tra chuỗi nhập vào input
 // const isCheckInput = () => {
-//   getElem(".input-qty").addEventListener("input", function () {
-//     let qty = getElem(".input-qty").value;
-//     qty = parseInt(qty);
-//     qty = qty == 0 || isNaN(qty) ? 1 : qty;
-//     getElem(".input-qty").value = qty;
-//   });
+//   // getElem(".input-qty").addEventListener("input", function () {
+//   //   let qty = getElem(".input-qty").value;
+//   //   qty = parseInt(qty);
+//   //   qty = qty == 0 || isNaN(qty) ? 1 : qty;
+//   //   getElem(".input-qty").value = qty;
+//   // });
 // };
 
-// Tính tổng tiền theo số lượng sản phẩm, cập nhật lại giá tiền
-function totalMoney() {
-  let total = [0];
+// Tính tổng tiền các sản phẩm trong giỏ hàng
+// function totalMoney() {
+//   let total = 0;
+//   for (let i = 0; i < cart.productsCart.length; i++) {
+//     const prod = cart.productsCart[i];
+//     total += prod.price * prod.qty;
+//   }
+//   // console.log('Tổng của tất cả sản phẩm: ', total);
+// }
+
+// Tính tổng từng sản phẩm
+function totalProduct(id) {
   for (let i = 0; i < cart.productsCart.length; i++) {
     const prod = cart.productsCart[i];
-    total[i] += prod.price * prod.qty;
+    if (prod.id === id) {
+      prod.total = prod.price * prod.qty;
+      // console.log("Tổng của sản phẩm: ", prod);
+      break;
+    }
   }
-  console.log(total);
+  renderReloadCart(cart.productsCart);
 }
 
 function lengthCart() {
-  return (getElem(".quantity-cart").innerHTML = cart.productsCart.length, getElem(".quantity").innerHTML = cart.productsCart.length);
+  return (
+    (getElem(".quantity-cart").innerHTML = cart.productsCart.length),
+    (getElem(".quantity").innerHTML = cart.productsCart.length)
+  );
 }
