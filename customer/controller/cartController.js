@@ -23,7 +23,10 @@ function renderReloadCart(arrProduct) {
 `;
   }
   getElem(".listCard").innerHTML = html;
-  // isCheckInput(id);
+
+    // isCheckInput(id);
+  let total = totalMoney();
+  document.getElementById("priceTotal").innerHTML = '$' + Math.floor(total);
 }
 
 function deleteProduct(id) {
@@ -68,7 +71,15 @@ function decreaseQty(id) {
 //   // });
 // };
 
-
+// Tính tổng tiền các sản phẩm trong giỏ hàng
+function totalMoney() {
+  let total = 0;
+  for (let i = 0; i < cart.productsCart.length; i++) {
+    const prod = cart.productsCart[i];
+    total += prod.price * prod.qty;
+  }
+  return total;
+}
 
 // Tính tổng từng sản phẩm
 function totalProduct(id) {
@@ -88,4 +99,13 @@ function lengthCart() {
     (getElem(".quantity-cart").innerHTML = cart.productsCart.length),
     (getElem(".quantity").innerHTML = cart.productsCart.length)
   );
+}
+
+function checkOut() {
+    productsCart = [];
+    cart.productsCart.length = 0;
+    console.log(productsCart);
+    renderReloadCart(productsCart);
+    totalMoney();
+    lengthCart();
 }
