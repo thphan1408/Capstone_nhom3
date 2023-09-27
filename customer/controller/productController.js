@@ -18,10 +18,10 @@ function renderProductList(productList) {
 					</div>
 				</div>
 				<div class="col-md-7 col-sm-12 col-xs-12">
-				<div class="product-detail">
+				<div class="product-deatil">
 						<h5 class="name">
 							<a href="#">
-								${products.name} <span>${products.type}</span>
+              ${products.name} <span>${products.type}</span>
 							</a>
 						</h5>
 						<p class="price-container">
@@ -70,18 +70,19 @@ function addToCart(id) {
   if (isCheckProduct(id) >= 0) {
     updateQty(isCheckProduct(id));
   } else {
-    cart.addProduct(pro);
+    cart.addProduct({ ...pro, qty: 1 });
     renderReloadCart(cart.productsCart);
   }
 
-  ValueQty();
+  ValueQty(cart.productsCart.length);
 }
 
 // Kiểm tra trùng sản phẩm
 function isCheckProduct(id) {
   let flag = -1;
-  for (let i = 0; i < cart.productsCart.length; i++) {
-    if (cart.productsCart[i].id === id) {
+  const prod = cart.productsCart;
+  for (let i = 0; i < prod.length; i++) {
+    if (prod[i].id === id) {
       flag = i;
       break;
     }
@@ -90,23 +91,21 @@ function isCheckProduct(id) {
 }
 
 // Update số lượng sản phẩm
+// Chỗ này có bug
 function updateQty(index) {
-  let qty = getElem(".input-qty").value;
-  for (let i = 0; i < cart.productsCart.length; i++) {
+  const prod = cart.productsCart;
+  for (let i = 0; i < prod.length; i++) {
     if (i === index) {
-      cart.productsCart[i].qty = Number(qty) + 1;
+      prod[i].qty += 1;
       break;
     }
   }
-
-//   console.log(cart.productsCart[index]);
-
-//ua bth ma
-// Mới chỉnh lại á, 
-    getElem(".input-qty").value = cart.productsCart[index].qty;
-  //   console.log(Cart.productsCart[index].qty);
+  renderReloadCart(cart.productsCart);
 }
 
-function ValueQty() {
-  getElem(".quantity").innerText = cart.productsCart.length;
+function ValueQty(length) {
+	// console.log(length);
+  getElem(".quantity-cart").innerHTML = length;
+  getElem(".quantity").innerHTML = length;
 }
+

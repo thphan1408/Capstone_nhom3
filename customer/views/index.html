@@ -67,7 +67,7 @@
           </div>
           <div class="shopping">
             <i class="fas fa-shopping-cart"></i>
-            <span class="quantity">0</span>
+            <span class="quantity-cart">0</span>
           </div>
         </nav>
       </div>
@@ -79,7 +79,7 @@
           <h1>Products</h1>
           <div class="products__selected">
             <select name="brands" id="brands" onchange="selectType()">
-              <option value="All">All</option >
+              <option value="All">All</option>
               <option value="Iphone">Iphone</option>
               <option value="Samsung">Samsung</option>
             </select>
@@ -91,7 +91,9 @@
     </section>
     <div class="card">
       <h1>Cart shopping</h1>
-      <ul class="listCard"></ul>
+      <div class="bodyCart">
+        <ul class="listCard"></ul>
+      </div>
       <!-- <div class="total">0</div> -->
       <div class="checkOut">
         <div class="checkOutBtn">Check Out</div>
