@@ -37,6 +37,15 @@
       }
     }
   }
+  .checkoutTotal {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px;
+    background-color: #eaeef3;
+    position: absolute;
+    bottom: 70px;
+  }
 }
 .active {
   .card {
