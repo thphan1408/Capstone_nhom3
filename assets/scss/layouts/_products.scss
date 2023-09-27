@@ -33,11 +33,11 @@
       .product-deatil {
         border-bottom: 1px solid #dfe5e9;
         padding-bottom: 17px;
-        padding-left: 16px;
+        // padding-left: 16px;
         padding-top: 16px;
         position: relative;
         background: #fff;
-        h5 {
+        .name {
           a {
             @include styleText(16px, $color_3, 600);
             line-height: 15px;
@@ -73,11 +73,11 @@
       .description {
         font-size: 16px;
         line-height: 22px;
-        padding: 10px 14px 16px 19px;
+        padding: 10px 14px 16px 0;
         background: #fff;
       }
       .product-info {
-        padding: 11px 19px 10px 20px;
+        padding: 11px 19px 10px 0;
         a.add-to-cart {
           color: $color_1;
           font-size: 13px;
@@ -233,7 +233,7 @@
       }
     }
     .product-deatil {
-      padding: 30px 30px 50px;
+      // padding: 30px 30px 50px;
       hr + .description-tabs {
         padding: 0 0 5px !important;
       }
