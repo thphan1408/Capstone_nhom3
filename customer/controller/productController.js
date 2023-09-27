@@ -73,8 +73,8 @@ function addToCart(id) {
     cart.addProduct({ ...pro, qty: 1, total: 0 });
     renderReloadCart(cart.productsCart);
   }
-
-  totalProduct(id)
+  totalMoney();
+  totalProduct(id);
   ValueQty(cart.productsCart.length);
 }
 
@@ -105,8 +105,7 @@ function updateQty(index) {
 }
 
 function ValueQty(length) {
-	// console.log(length);
+  // console.log(length);
   getElem(".quantity-cart").innerHTML = length;
   getElem(".quantity").innerHTML = length;
 }
-

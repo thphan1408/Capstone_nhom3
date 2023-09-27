@@ -15,6 +15,7 @@ function renderReloadCart(arrProduct) {
 		   </span>
 		   <p>$${prod.total}</p>
 
+
 		   <button class="btn btn-danger" onclick="deleteProduct('${prod.id}')">
 			   <i class="fa fa-trash"></i>
 		   </button>
@@ -22,7 +23,7 @@ function renderReloadCart(arrProduct) {
 `;
   }
   getElem(".listCard").innerHTML = html;
-    // isCheckInput(id);
+  // isCheckInput(id);
 }
 
 function deleteProduct(id) {
@@ -40,7 +41,6 @@ function increaseQty(id) {
       break;
     }
   }
-  // totalMoney(cart.productsCart);
   totalProduct(id);
   renderReloadCart(cart.productsCart);
 }
@@ -54,7 +54,6 @@ function decreaseQty(id) {
       break;
     }
   }
-  // totalMoney(cart.productsCart);
   totalProduct(id);
   renderReloadCart(cart.productsCart);
 }
@@ -69,15 +68,7 @@ function decreaseQty(id) {
 //   // });
 // };
 
-// Tính tổng tiền các sản phẩm trong giỏ hàng
-// function totalMoney() {
-//   let total = 0;
-//   for (let i = 0; i < cart.productsCart.length; i++) {
-//     const prod = cart.productsCart[i];
-//     total += prod.price * prod.qty;
-//   }
-//   // console.log('Tổng của tất cả sản phẩm: ', total);
-// }
+
 
 // Tính tổng từng sản phẩm
 function totalProduct(id) {
