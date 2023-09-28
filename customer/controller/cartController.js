@@ -52,9 +52,17 @@ function renderReloadCart(arrProduct) {
   }
   getElem(".listCard").innerHTML = html;
 
-  // isCheckInput(id);
+  // Tính tổng tiền
   let total = totalMoney();
   document.getElementById("priceTotal").innerHTML = "$" + Math.floor(total);
+
+  // Kiểm tra chuỗi nhập vào input
+  getElem(".input-qty").addEventListener("input", function () {
+    let qty = getElem(".input-qty").value;
+    qty = parseInt(qty);
+    qty = qty == 0 || isNaN(qty) ? 1 : qty;
+    getElem(".input-qty").value = qty;
+  });
 }
 
 function deleteProduct(id) {
@@ -107,15 +115,6 @@ function decreaseQty(id) {
   renderReloadCart(cart.productsCart);
 }
 
-// Kiểm tra chuỗi nhập vào input
-// const isCheckInput = () => {
-//   // getElem(".input-qty").addEventListener("input", function () {
-//   //   let qty = getElem(".input-qty").value;
-//   //   qty = parseInt(qty);
-//   //   qty = qty == 0 || isNaN(qty) ? 1 : qty;
-//   //   getElem(".input-qty").value = qty;
-//   // });
-// };
 
 // Tính tổng tiền các sản phẩm trong giỏ hàng
 function totalMoney() {
