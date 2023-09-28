@@ -387,6 +387,11 @@ header .shopping span {
   position: absolute;
   bottom: 70px;
 }
+.card .bodyCart {
+  overflow-y: scroll;
+  height: 67%;
+  padding: 10px 10px;
+}
 
 .active .card {
   left: calc(100% - 500px);
