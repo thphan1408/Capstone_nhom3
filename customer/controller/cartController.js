@@ -58,6 +58,24 @@ function renderReloadCart(arrProduct) {
 }
 
 function deleteProduct(id) {
+  // Lấy dữ liệu từ local storage
+  const dataJSON = localStorage.getItem("cart");
+  // Chuyển đổi dữ liệu từ chuỗi JSON sang mảng
+  const data = JSON.parse(dataJSON);
+
+  // Duyệt lấy từng phần tử để so sánh id
+  for (let i = 0; i < data.length; i++) {
+    const prod = data[i];
+    if (prod.id === id) {
+      // Xóa phần tử trong mảng
+      data.splice(i, 1);
+      break;
+    }
+  }
+
+  // Lưu lại dữ liệu vào local storage
+  localStorage.setItem("cart", JSON.stringify(data));
+
   cart.deleteProduct(id);
   renderReloadCart(cart.productsCart);
   lengthCart();
