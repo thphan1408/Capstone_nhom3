@@ -66,15 +66,20 @@ function selectType() {
 // thêm sản phẩm vào giỏ hàng
 function addToCart(id) {
   let pro = productArr.find((p) => p.id === id);
+  // console.log(pro);
+  // local storage
 
   if (isCheckProduct(id) >= 0) {
     updateQty(isCheckProduct(id));
   } else {
     cart.addProduct({ ...pro, qty: 1, total: 0 });
+    let data = JSON.stringify(cart.productsCart);
+    // console.log(data);
+    localStorage.setItem("cart", data);
     renderReloadCart(cart.productsCart);
   }
-
-  totalProduct(id)
+  totalMoney();
+  totalProduct(id);
   ValueQty(cart.productsCart.length);
 }
 
@@ -105,8 +110,7 @@ function updateQty(index) {
 }
 
 function ValueQty(length) {
-	// console.log(length);
+  // console.log(length);
   getElem(".quantity-cart").innerHTML = length;
   getElem(".quantity").innerHTML = length;
 }
-
