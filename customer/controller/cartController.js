@@ -56,13 +56,15 @@ function renderReloadCart(arrProduct) {
   let total = totalMoney();
   document.getElementById("priceTotal").innerHTML = "$" + Math.floor(total);
 
-  // Kiểm tra chuỗi nhập vào input
-  getElem(".input-qty").addEventListener("input", function () {
-    let qty = getElem(".input-qty").value;
-    qty = parseInt(qty);
-    qty = qty == 0 || isNaN(qty) ? 1 : qty;
-    getElem(".input-qty").value = qty;
-  });
+  if (arrProduct.length) {
+    // Kiểm tra chuỗi nhập vào input
+    getElem(".input-qty").addEventListener("input", function () {
+      let qty = getElem(".input-qty").value;
+      qty = parseInt(qty);
+      qty = qty == 0 || isNaN(qty) ? 1 : qty;
+      getElem(".input-qty").value = qty;
+    });
+  }
 }
 
 function deleteProduct(id) {
@@ -91,6 +93,21 @@ function deleteProduct(id) {
 
 // tăng số lượng sản phẩm theo id
 function increaseQty(id) {
+  // Lấy dữ liệu từ local storage
+  const dataJSON = localStorage.getItem("cart");
+  // Chuyển đổi dữ liệu từ chuỗi JSON sang mảng
+  const data = JSON.parse(dataJSON);
+
+  // Duyệt lấy từng phần tử để so sánh id
+  for (let i = 0; i < data.length; i++) {
+    const prod = data[i];
+    if (prod.id === id) {
+      // Tăng số lượng sản phẩm
+      prod.qty += 1;
+      break;
+    }
+  }
+
   for (let i = 0; i < cart.productsCart.length; i++) {
     const prod = cart.productsCart[i];
     if (prod.id === id) {
@@ -98,12 +115,30 @@ function increaseQty(id) {
       break;
     }
   }
+  // Lưu lại dữ liệu vào local storage
+  localStorage.setItem("cart", JSON.stringify(data));
+
   totalProduct(id);
   renderReloadCart(cart.productsCart);
 }
 
 // giảm số lượng sản phẩm theo id
 function decreaseQty(id) {
+  // Lấy dữ liệu từ local storage
+  const dataJSON = localStorage.getItem("cart");
+  // Chuyển đổi dữ liệu từ chuỗi JSON sang mảng
+  const data = JSON.parse(dataJSON);
+
+  // Duyệt lấy từng phần tử để so sánh id
+  for (let i = 0; i < data.length; i++) {
+    const prod = data[i];
+    if (prod.id === id && prod.qty > 1) {
+      // Giảm số lượng sản phẩm
+      prod.qty -= 1;
+      break;
+    }
+  }
+
   for (let i = 0; i < cart.productsCart.length; i++) {
     const prod = cart.productsCart[i];
     if (prod.id === id && prod.qty > 1) {
@@ -111,10 +146,13 @@ function decreaseQty(id) {
       break;
     }
   }
+
+  // Lưu lại dữ liệu vào local storage
+  localStorage.setItem("cart", JSON.stringify(data));
+
   totalProduct(id);
   renderReloadCart(cart.productsCart);
 }
-
 
 // Tính tổng tiền các sản phẩm trong giỏ hàng
 function totalMoney() {
