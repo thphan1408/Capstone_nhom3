@@ -1,3 +1,31 @@
+// Lấy dữ liệu từ local storage lúc user load trang
+const dataJSON = localStorage.getItem("cart");
+// console.log(dataJSON);
+if (dataJSON) {
+  // Cách 2:
+  cart.productsCart = JSON.parse(dataJSON).map((prod) => {
+    return {
+      ...prod,
+      total: prod.price * prod.qty,
+    };
+  });
+  // console.log(cart.productsCart);
+
+  // Cách 1:
+  // for (let i = 0; i < cart.productsCart.length; i++) {
+  //   // const prod = cart.productsCart[i];
+  //   cart.productsCart[i] = {
+  //     ...cart.productsCart[i],
+  //     total: cart.productsCart[i].price * cart.productsCart[i].qty,
+  //   };
+  //   // cart.productsCart[i] = prod;
+
+  //   // console.log(cart.productsCart[i]);
+  // }
+  renderReloadCart(cart.productsCart);
+  ValueQty(cart.productsCart.length);
+}
+
 function renderReloadCart(arrProduct) {
   let html = "";
   for (let i = 0; i < arrProduct.length; i++) {
@@ -24,9 +52,9 @@ function renderReloadCart(arrProduct) {
   }
   getElem(".listCard").innerHTML = html;
 
-    // isCheckInput(id);
+  // isCheckInput(id);
   let total = totalMoney();
-  document.getElementById("priceTotal").innerHTML = '$' + Math.floor(total);
+  document.getElementById("priceTotal").innerHTML = "$" + Math.floor(total);
 }
 
 function deleteProduct(id) {
@@ -102,10 +130,13 @@ function lengthCart() {
 }
 
 function checkOut() {
-    productsCart = [];
-    cart.productsCart.length = 0;
-    console.log(productsCart);
-    renderReloadCart(productsCart);
-    totalMoney();
-    lengthCart();
+  productsCart = [];
+  cart.productsCart.length = 0;
+  // console.log(productsCart);
+
+  localStorage.removeItem("cart");
+
+  renderReloadCart(productsCart);
+  totalMoney();
+  lengthCart();
 }
