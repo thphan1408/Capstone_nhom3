@@ -46,6 +46,11 @@
     position: absolute;
     bottom: 70px;
   }
+  .bodyCart {
+    overflow-y: scroll;
+    height: 67%;
+    padding: 10px 10px;
+  }
 }
 .active {
   .card {
